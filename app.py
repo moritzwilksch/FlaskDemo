@@ -13,7 +13,7 @@ df = sns.load_dataset("tips")
 def hello():
     if request.method == "GET":
         # Standard display
-        return render_template('test.html',  table_to_show=df.to_html())
+        return render_template('test.html',  table_to_show=df.to_html(), mintip=mintip)
     elif request.method == "POST":
         # if frontend request POSTs input value
         for key, val in request.form.items():
@@ -31,7 +31,7 @@ def hello():
         # filter df
         res = df.query("tip >= @mintip")
         # pass bootstrap class for styling
-        return render_template("test.html", table_to_show=res.to_html(classes="table table-sm"))
+        return render_template("test.html", table_to_show=res.to_html(classes="table table-sm"), mintip=mintip)
         
 if __name__ == "__main__":
     app.debug = True
