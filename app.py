@@ -14,7 +14,7 @@ def hello():
     mintip = 0
     if request.method == "GET":
         # Standard display
-        return render_template('test.html',  table_to_show=df.to_html(), mintip=mintip)
+        return render_template('test.html',  table_to_show=df.to_html(classes="table table-sm"), mintip=mintip)
     elif request.method == "POST":
         # if frontend request POSTs input value
         for key, val in request.form.items():
@@ -41,7 +41,20 @@ def predpage():
         return render_template("predict.html")
     elif request.method == "POST":
         input_total_bill = request.form.get("input_total_bill")
+        input_sex = request.form.get("input_sex")
+        input_smoker = request.form.get("input_smoker")
+        input_day = request.form.get("input_day")
+        input_time = request.form.get("input_time")
+        input_size = request.form.get("input_size")
         
+        input_df = pd.DataFrame({
+            "total_bill": int(input_total_bill),
+            "sex": input_sex,
+            "smoker": input_smoker,
+            "day": input_day,
+            "time": input_time,
+            "size": input_size
+        })
         print(f"INPUT TOTAL = {input_total_bill}")
         input_total_bill = int(input_total_bill)
         return render_template("predict.html", predtip=input_total_bill*0.1)
