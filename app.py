@@ -15,7 +15,7 @@ def hello():
     mintip = 0
     if request.method == "GET":
         # Standard display
-        return render_template('test.html',  table_to_show=df.to_html(classes="table table-sm"), mintip=mintip)
+        return render_template('landingpage.html',  table_to_show=df.to_html(classes="table table-sm"), mintip=mintip)
     elif request.method == "POST":
         # if frontend request POSTs input value
         for key, val in request.form.items():
@@ -33,7 +33,7 @@ def hello():
         # filter df
         res = df.query("tip >= @mintip")
         # pass bootstrap class for styling
-        return render_template("test.html", table_to_show=res.to_html(classes="table table-sm"), mintip=mintip)
+        return render_template("landingpage.html", table_to_show=res.to_html(classes="table table-sm"), mintip=mintip)
         
 @app.route("/predpage", methods=["GET", "POST"])
 def predpage():
