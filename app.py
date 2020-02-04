@@ -3,6 +3,7 @@ from flask import *
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import pickle
 
 
 app = Flask(__name__)
@@ -48,19 +49,30 @@ def predpage():
         input_size = request.form.get("input_size")
         
         input_df = pd.DataFrame({
-            "total_bill": int(input_total_bill),
+            "total_bill": float(input_total_bill),
             "sex": input_sex,
             "smoker": input_smoker,
             "day": input_day,
             "time": input_time,
-            "size": input_size
-        })
-        print(f"INPUT TOTAL = {input_total_bill}")
-        input_total_bill = int(input_total_bill)
-        return render_template("predict.html", predtip=input_total_bill*0.1)
+            "size": int(input_size)
+        }, index=[0])
+
+        catcols = ["sex", "smoker", "day", "time"]
+        input_df[catcols] = input_df[catcols].astype("category")
+        print(input_df.info())
+        print(model)
+        input_df = transformer.transform(input_df)
+        print(input_df)
+        prediction = model.predict(input_df)
+
+        return render_template("predict.html", predtip=prediction[0])
 
 
 
 if __name__ == "__main__":
     app.debug = True
+    with open("ML-API-Example/lmodel.pck", "rb") as f:
+        model = pickle.load(f)
+    with open("ML-API-Example/transformer.pck", "rb") as f:
+        transformer = pickle.load(f)
     app.run()

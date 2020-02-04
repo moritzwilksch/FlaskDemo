@@ -1,29 +1,33 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Title of the document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Flask Demo</title>
 </head>
 
 <body>
-    <h1>Showing the Data Frame</h1>
+  <h1>Filtering the Data Frame</h1>
 
-    <form action="/" method="POST">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroup-sizing-default">Minimum Tip</span>
-            </div>
-            <input value={{mintip}} name="mintip" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <input class="btn btn-primary" type="submit" value="Submit">
-          <a href="/predpage" method="GET">Predict Tip</a>
+  <form action="/" method="POST">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Minimum Tip</span>
+      </div>
+      <input value={{mintip}} name="mintip" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default">
+    </div>
+    <span class="badge badge-pill badge-light">Showing rows with tip greater than {{mintip}}</span>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Submit">
+  </form>
 
-    <p>Showing rows with tip greater than {{mintip}}</p>
-    </form>
+  <a href="/predpage" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Predict Tip</a>
 
 
 
-    {{ table_to_show|safe}}
+
+  {{ table_to_show|safe}}
 
 
 
