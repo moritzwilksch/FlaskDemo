@@ -4,6 +4,10 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import pickle
+import matplotlib.pyplot as plt
+import matplotlib
+# to prevent some kind of strange assertion error
+matplotlib.use("Agg")
 
 
 app = Flask(__name__)
@@ -68,6 +72,23 @@ def predpage():
         return render_template("predict.html", predtip=prediction[0])
 
 
+@app.route("/plotpage", methods=["GET", "POST"])
+def plotpage():
+    if request.method == "GET":
+        return render_template("plotpage.html")
+    elif request.method == "POST":
+        input_day = request.form.get("input_day")
+        print(input_day)
+
+        sns.distplot(df.query("day == @input_day")["tip"])
+        plt.savefig("./static/graph.png")
+        plt.close() # to prevent multiple plots in one file
+        return render_template("plotpage.html")
+        
+
+
+
+
 
 if __name__ == "__main__":
     app.debug = True
@@ -75,4 +96,4 @@ if __name__ == "__main__":
         model = pickle.load(f)
     with open("ML-API-Example/transformer.pck", "rb") as f:
         transformer = pickle.load(f)
-    app.run()
+    app.run(host="0.0.0.0")

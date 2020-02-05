@@ -9,78 +9,81 @@
 
 <body>
   <h1>Predicting new tip</h1>
-  <a href="/" class="badge badge-secondary"><--- Home</a>
-  <br><br>
+  <a href="/" class="badge badge-secondary">
+    <--- Home</a> <br><br>
 
-  <form action="/predpage" method="POST">
-    <div class="mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Total Bill</span>
-      </div>
-      <input value=16.99 name="input_total_bill" class="form-control" aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-default">
-    </div>
+      <form action="/predpage" method="POST">
 
-    <div class="form-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Sex</span>
-      </div>
-      <select name="input_sex" class="form-control" id="exampleFormControlSelect1">
-        <option>Male</option>
-        <option>Female</option>
-      </select>
-    </div>
+        <span class="border">
+        <div class="col-md-6 mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Total Bill</span>
+          </div>
+          <input value=16.99 name="input_total_bill" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
 
-
-    <div class="form-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Smoker</span>
-      </div>
-      <select name="input_smoker" class="form-control" id="exampleFormControlSelect1">
-        <option>No</option>
-        <option>Yes</option>
-      </select>
-    </div>
+        <div class="col-md-6 form-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Sex</span>
+          </div>
+          <select name="input_sex" class="form-control" id="exampleFormControlSelect1">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
 
 
-    <div class="form-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Day</span>
-      </div>
-      <select name="input_day" class="form-control" id="exampleFormControlSelect1">
-        <option>Thur</option>
-        <option>Fri</option>
-        <option>Sat</option>
-        <option>Sun</option>
-      </select>
-    </div>
+        <div class="col-md-6 form-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Smoker</span>
+          </div>
+          <select name="input_smoker" class="form-control" id="exampleFormControlSelect1">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
 
 
-
-    <div class="form-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Time</span>
-      </div>
-      <select name="input_time" class="form-control" id="exampleFormControlSelect1">
-        <option>Lunch</option>
-        <option>Dinner</option>
-      </select>
-    </div>
+        <div class="col-md-6 form-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Day</span>
+          </div>
+          <select name="input_day" class="form-control" id="exampleFormControlSelect1">
+            <option>Thur</option>
+            <option>Fri</option>
+            <option>Sat</option>
+            <option>Sun</option>
+          </select>
+        </div>
 
 
 
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Size</span>
-    </div>
-    <input value=2 name="input_size" class="form-control" aria-label="Sizing example input"
-      aria-describedby="inputGroup-sizing-default">
+        <div class="col-md-6 form-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Time</span>
+          </div>
+          <select name="input_time" class="form-control" id="exampleFormControlSelect1">
+            <option>Lunch</option>
+            <option>Dinner</option>
+          </select>
+        </div>
 
-    </div>
 
-    <input class="btn btn-primary" type="submit" value="Submit">
-  </form>
+        <div class="col-md-6">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Size</span>
+        </div>
+        <input value=2 name="input_size" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default">
+        </div>
+        </div>
+      </span>
+      <br>
+        <input class="btn btn-primary" type="submit" value="Submit">
+      </form>
 
-  <h4 class="display-4">Predicted Tip = {{predtip}} </h4>
+      <h4 class="display-4">Predicted Tip = {{predtip}} </h4>
 
 
 

@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Plotting Stuff</title>
+</head>
+
+<body>
+    <h1>Plotting stuff</h1>
+    <a href="/" class="badge badge-secondary">
+        <--- Home</a> <br><br>
+
+            <form action="/plotpage" method="POST">
+                <div class="col-md-6 form-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Day</span>
+                    </div>
+                    <select name="input_day" class="form-control" id="exampleFormControlSelect1">
+                        <option>Thur</option>
+                        <option>Fri</option>
+                        <option>Sat</option>
+                        <option>Sun</option>
+                    </select>
+                </div>
+
+                <input class="btn btn-primary" type="submit" value="Submit">
+
+            </form>
+
+
+
+            <img src="{{ url_for('static', filename = 'graph.png')}}" />
+
+
+
+</body>
+
+</html>
