@@ -6,8 +6,7 @@ import seaborn as sns
 import pickle
 import matplotlib.pyplot as plt
 import matplotlib
-# to prevent some kind of strange assertion error
-matplotlib.use("Agg")
+
 
 
 app = Flask(__name__)
@@ -69,7 +68,7 @@ def predpage():
         print(input_df)
         prediction = model.predict(input_df)
 
-        return render_template("predict.html", predtip=prediction[0])
+        return render_template("predict.html", predtip=round(prediction[0], 2))
 
 
 @app.route("/plotpage", methods=["GET", "POST"])
