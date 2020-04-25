@@ -80,7 +80,7 @@ def plotpage():
         print(input_day)
 
         sns.distplot(df.query("day == @input_day")["tip"])
-        plt.savefig("./static/graph.png")
+        plt.savefig("./static/images/graph.svg")
         plt.close() # to prevent multiple plots in one file
         return render_template("plotpage.html")
         

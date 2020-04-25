@@ -11,12 +11,12 @@
     <a href="/" class="badge badge-secondary">
         <--- Home</a> <br><br>
 
-            <form action="/plotpage" method="POST">
+            <form action="/plotpage" method="POST" name="dayForm">
                 <div class="col-md-6 form-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Day</span>
                     </div>
-                    <select name="input_day" class="form-control" id="exampleFormControlSelect1">
+                    <select name="input_day" class="form-control" id="exampleFormControlSelect1" onchange="dayForm.submit()">
                         <option>Thur</option>
                         <option>Fri</option>
                         <option>Sat</option>
@@ -24,13 +24,11 @@
                     </select>
                 </div>
 
-                <input class="btn btn-primary" type="submit" value="Submit">
-
             </form>
 
 
 
-            <img src="{{ url_for('static', filename = 'graph.png')}}" />
+            <img src="{{ url_for('static', filename = '/images/graph.svg')}}" />
 
 
 
